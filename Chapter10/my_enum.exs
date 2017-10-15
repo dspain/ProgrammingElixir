@@ -38,4 +38,15 @@ defmodule MyEnum do
   defp _split(list1, [head|tail], n) do
     _split(list1 ++ [head], tail, n-1)
   end
+
+  def take(list,n) do
+    _take([], list, n)
+  end
+
+  defp _take(list1,_list2,0) do
+    list1
+  end
+  defp _take(list1, [head|tail], n) do
+    _take(list1 ++ [head], tail, n-1)
+  end
 end
