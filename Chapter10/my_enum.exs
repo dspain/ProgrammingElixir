@@ -49,4 +49,5 @@ defmodule MyEnum do
   defp _take(list1, [head|tail], n) do
     _take(list1 ++ [head], tail, n-1)
   end
+
 end
