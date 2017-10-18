@@ -1,10 +1,11 @@
 defmodule MyList do
 
   def primes(n) do
-    for x <- span(2,n), do: Enum.filter(fn a -> rem(x,a) == 0)
+    total = span(2,n)
+    total -- (for x <- total, y <- total, x <= y, x*y <= n, do: x*y)
   end
 
-  def span(from, to) when from >= to do
+  def span(from, to) when from > to do
     raise "'from' (#{from}) must be less than 'to' #{to}"
   end
   def span(from, to) when from == to do
