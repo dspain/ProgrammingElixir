@@ -14,6 +14,6 @@ defmodule CliTest do
   end
 
   test "count is defaulted if two values given" do
-    assert parse_args(["user", "project"]) == { "user", "project", 4}
+    assert parse_args(["user", "project"]) == { "user", "project", 4 }
   end
 end

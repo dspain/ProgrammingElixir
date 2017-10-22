@@ -29,7 +29,7 @@ defmodule Issues.CLI do
         -> :help
       { _, [ user, project, count ], _ }
         -> { user, project, count }
-      { _, [ user, project, _ ], _ }
+      { _, [ user, project ], _ }
         -> { user, project, @default_count }
       _ -> :help
     end
