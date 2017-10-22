@@ -8,7 +8,9 @@ defmodule Issues.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      name: "Programming Elixir 1.3",
+      source_url: "https://github.com/dspain/ProgrammingElixir"
     ]
   end
 
@@ -22,8 +24,10 @@ defmodule Issues.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      httpoison: "~> 0.9",
-      poison:    "~> 2.2"
+      {:httpoison, "~> 0.9"},
+      {:poison,    "~> 2.2"},
+      {:ex_doc,    "~> 0.12"},
+      {:earmark,   "~> 1.0", override: true}
     ]
   end
 
