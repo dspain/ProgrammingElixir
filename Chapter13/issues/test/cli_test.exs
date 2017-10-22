@@ -20,7 +20,7 @@ defmodule CliTest do
 
   test "sort ascending orders the correct way" do
     result = sort_into_ascending_order(fake_created_at_list(["c", "a", "b"]))
-    issues = for issue <- result, do Map.get(issue, "created_at")
+    issues = for issue <- result, do: Map.get(issue, "created_at")
     assert issues == ~w{a b c}
   end
 
