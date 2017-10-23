@@ -22,7 +22,7 @@ defmodule Pbt.Mixfile do
   defp deps do
     [
       { :triq, github: "triqng/triq", only: :test },
-      { :excheck,  "~> 0.4.0", only: :test },
+      { :excheck,  "~> 0.5.0", only: :test },
     ]
   end
 end
