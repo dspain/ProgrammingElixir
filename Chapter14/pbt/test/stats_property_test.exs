@@ -13,9 +13,11 @@ defmodule StatsPropertyTest do
       end
     end
 
-    property "sum equals average times count" do
+    property "sum equals average times count (implies)" do
       for_all l in list(int) do
-        abs(Stats.sum(l) - Stats.count(l) * Stats.average(l)) < 1.0e-6
+        implies length(l) > 0 do
+          abs(Stats.sum(l) - Stats.count(l) * Stats.average(l)) < 1.0e-6
+        end
       end
     end
   end
