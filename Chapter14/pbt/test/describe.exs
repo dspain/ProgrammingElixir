@@ -10,15 +10,15 @@ defmodule TestStats do
       ]
     end
 
-    test "calculates sum" do
+    test "calculates sum", fixture do
       assert Stats.sum(fixture.list) == fixture.sum
     end
 
-    test "calculates count" do
+    test "calculates count", fixture do
       assert Stats.count(fixture.list) == fixture.count
     end
 
-    test "calculates average" do
+    test "calculates average", fixture do
       assert Stats.average(fixture.list) == fixture.sum / fixture.count
     end
   end
