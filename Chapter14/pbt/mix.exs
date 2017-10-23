@@ -21,7 +21,7 @@ defmodule Pbt.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      { :triq, github: "krestenkrab/triq", only: :test },
+      { :triq, github: "triqng/triq", only: :test },
       { :excheck,  "~> 0.4.0", only: :test },
     ]
   end
