@@ -10,7 +10,14 @@ defmodule Issues.Mixfile do
       start_permanent: Mix.env == :prod,
       deps: deps(),
       name: "Programming Elixir 1.3",
-      source_url: "https://github.com/dspain/ProgrammingElixir"
+      source_url: "https://github.com/dspain/ProgrammingElixir",
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        "coveralls": :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -27,7 +34,8 @@ defmodule Issues.Mixfile do
       {:httpoison, "~> 0.9"},
       {:poison,    "~> 2.2"},
       {:ex_doc,    "~> 0.12"},
-      {:earmark,   "~> 1.0", override: true}
+      {:earmark,   "~> 1.0", override: true},
+      {:excoveralls, "~> 0.5", only: :test}
     ]
   end
 
