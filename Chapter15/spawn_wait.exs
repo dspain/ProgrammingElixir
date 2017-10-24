@@ -3,6 +3,7 @@ defmodule SpawnWait do
 
   def send_parent(pid) do
     send pid, "Hi mom!"
+    raise "Error"
     exit(:boom)
   end
 
