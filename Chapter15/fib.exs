@@ -42,7 +42,7 @@ defmodule Scheduler do
         end
 
       {:answer, number, result, _pid} ->
-        schedule_processes(processes, queue, [ {nmber, result} | results ])
+        schedule_processes(processes, queue, [ {number, result} | results ])
     end
   end
 end
