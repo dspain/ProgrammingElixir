@@ -9,8 +9,8 @@ defmodule Sequence.Supervisor do
     # Start the stash worker
     {:ok, stash} =
       Supervisor.start_child(sup, worker(Sequence.Stash, [initial_number]))
-      # and then the supervisor for the actual sequence server
-      Supervisor.start_child(sup, supervisor(Sequence.SubSupervisor, [stash]))
+    # and then the supervisor for the actual sequence server
+    Supervisor.start_child(sup, supervisor(Sequence.SubSupervisor, [stash]))
   end
   def init(_) do
     supervise [], strategy: :one_for_one

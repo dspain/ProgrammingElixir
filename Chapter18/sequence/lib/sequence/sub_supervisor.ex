@@ -6,6 +6,6 @@ defmodule Sequence.SubSupervisor do
   end
   def init(stash_pid) do
     child_processes = [ worker(Sequence.Server, [stash_pid]) ]
-    supervise child_processes, startegy: :one_for_one
+    supervise child_processes, strategy: :one_for_one
   end
 end
