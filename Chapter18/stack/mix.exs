@@ -15,7 +15,8 @@ defmodule Stack.Mixfile do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Stack.Application, []}
+      mod: {Stack.Application, ["a", "b", "c"]},
+      registered: [ Stack.Server ]
     ]
   end
 
