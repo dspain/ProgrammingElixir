@@ -5,7 +5,7 @@ defmodule Sequence.Application do
 
   use Application
 
-  def start(_type, _args) do
+  def start(_type, initial_number) do
     # # List all child processes to be supervised
     # children = [
     #   # Starts a worker by calling: Sequence.Worker.start_link(arg)
@@ -16,6 +16,6 @@ defmodule Sequence.Application do
     # # for other strategies and supported options
     # opts = [strategy: :one_for_one, name: Sequence.Supervisor]
     # Supervisor.start_link(children, opts)
-    {:ok, _pid} = Sequence.Supervisor.start_link(123)
+    {:ok, _pid} = Sequence.Supervisor.start_link(initial_number)
   end
 end
