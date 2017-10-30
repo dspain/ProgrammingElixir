@@ -15,16 +15,17 @@ defmodule Stack.Server do
   end
 
   # GenServer calls
-  def handle_call(:pop, _from, [head | tail]) do
-    { :reply, head, tail }
+  def init(stash_pid) do
+    current_list = Stack.Stash.get_value stash_pid
+    { :ok, {current_list, stash_pid} }
   end
-
-  def handle_cast({:push, val}, list) do
-    { :noreply, [val|list]}
+  def handle_call(:pop, _from, {[head | tail], stash_pid}) do
+    { :reply, head, {tail, stash_pid} }
   end
-
-  def terminate(reason, state) do
-    IO.puts "\n\n\n\n\nTerminating due to #{reason} with state #{inspect state}\n\n\n\n\n"
-    :ok
+  def handle_cast({:push, val}, {list, stash_pid}) do
+    { :noreply, {[val|list], stash_pid} }
+  end
+  def terminate(_reason, {current_list, stash_pid}) do
+    Stack.Stash.save_value stash_pid, current_list
   end
 end
