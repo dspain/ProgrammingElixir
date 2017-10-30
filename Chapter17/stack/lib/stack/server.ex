@@ -22,4 +22,9 @@ defmodule Stack.Server do
   def handle_cast({:push, val}, list) do
     { :noreply, [val|list]}
   end
+
+  def terminate(reason, state) do
+    IO.puts "\n\n\n\n\nTerminating due to #{reason} with state #{inspect state}\n\n\n\n\n"
+    :ok
+  end
 end
