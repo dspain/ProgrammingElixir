@@ -5,7 +5,7 @@ defmodule Fib do
 end
 
 IO.puts "Start the task"
-worker = Task.async(fn -> Fib.of(20) end)
+worker = Task.async(Fib, :of, [20])
 IO.puts "Do something else"
 # ...
 IO.puts "Wait for the task"
