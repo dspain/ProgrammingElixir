@@ -8,7 +8,10 @@ defmodule Dictionary do
   do: Agent.start_link(fn -> %{} end, name: @name)
 
   def add_words(words),
-  do: Agent.update(@name, &Map.get(&1, signature_of(words)))
+  do: Agent.update(@name, &do_add_words(&1, words))
+
+  def anagrams_of(word),
+  do: Agent.get(@name, &Map.get(&1, signature_of(word)))
 
   ##
   # Internal implementation
