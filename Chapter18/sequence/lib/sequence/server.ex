@@ -33,7 +33,7 @@ defmodule Sequence.Server do
   def handle_call(:next_number, _from, state) do
     { :reply,
       state.current_number,
-      %{state | current_number: state.current_number+1, stash_pid: stash_pid} }
+      %{state | current_number: state.current_number + state.delta} }
   end
   def handle_cast({:increment_number, delta }, state) do
     { :noreply,
