@@ -1,7 +1,10 @@
 defmodule Tracer do
-  defmacro def(definition, do: _content) do
-    IO.inspect definition
-    quote do: {}
+  defmacro def(definition, do: content) do
+    quote do
+      Kernel.def(unquote(definition)) do
+        unquote(content)
+      end
+    end
   end
 end
 
