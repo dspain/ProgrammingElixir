@@ -1,8 +1,19 @@
 defmodule Tracer do
-  defmacro def(definition, do: content) do
+  def dump_args(args) do
+    args |> Enum.map(&inspect/1) |> Enum.join(", ")
+  end
+
+  def dump_defn(name, args) do
+    "#{name}(#{dump_args(args)})"
+  end
+
+  defmacro def(definition={name,_,args}, do: content) do
     quote do
       Kernel.def(unquote(definition)) do
-        unquote(content)
+        IO.puts "==> call:   #{Tracer.dump_defn(unquote(name), unquote(args))}"
+        result = unquote(content)
+        IO.puts "<== result: #{result}"
+        result
       end
     end
   end
