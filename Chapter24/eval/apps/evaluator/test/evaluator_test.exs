@@ -9,7 +9,7 @@ defmodule EvaluatorTest do
     """
 
     output = ~l"""
-    code>  1 + 2
+    code> 1 + 2
     value> 3
     """
 
@@ -22,9 +22,9 @@ defmodule EvaluatorTest do
     a + 1
     """
     output = ~l"""
-    code>  a = 123
+    code> a = 123
     value> 123
-    code>  a + 1
+    code> a + 1
     value> 124
     """
 
