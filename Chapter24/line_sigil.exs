@@ -15,7 +15,7 @@ defmodule LineSigil do
       ["one", "two", "three"]
   """
   def sigil_l(lines, _opts) do
-    lines |> String.rstrip |> String.split("\n")
+    lines |> String.trim_trailing |> String.split("\n")
   end
 end
 
